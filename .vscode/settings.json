@@ -3,5 +3,9 @@
     "source.organizeImports": false,
     "source.fixAll": false,
     "source.fixAll.eslint": false
-  }
+  },
+  "files.exclude": {
+    "**/node_modules/": true
+  },
+  "javascript.implicitProjectConfig.checkJs": false
 }
