@@ -1,15 +1,13 @@
 import styled, { css } from "styled-components";
+import { circle } from "util/mixins";
 
 // 跟SASS/Less中的Mixins类似
-const circaleMixinFunc = (color, size = "8px") => css`
+const circleMixinFunc = (color, size = "8px") => css`
   /* before/after设置content才能显示 */
   content: "";
   display: block;
   position: absolute;
-  width: ${size};
-  height: ${size};
-  border-radius: 50%;
-  background-color: ${color};
+  ${circle(color, size)}
 `;
 
 const StyledAvatar = styled.div`
@@ -25,7 +23,7 @@ const StatusIcon = styled.div`
 
   /* 伪元素:styled支持嵌套CSS，类似less、sess，可直接定义子元素或为元素；&代表外侧（本身）可省略 */
   &::before {
-    ${({ size }) => circaleMixinFunc("white", size)}
+    ${({ size }) => circleMixinFunc("white", size)}
 
     transform: scale(2);
   }
@@ -33,9 +31,9 @@ const StatusIcon = styled.div`
   &::after {
     ${({ theme, status, size }) => {
       if (status === "online") {
-        return circaleMixinFunc(theme.green, size);
+        return circleMixinFunc(theme.green, size);
       } else if (status === "offline") {
-        return circaleMixinFunc(theme.gray, size);
+        return circleMixinFunc(theme.gray, size);
       }
     }}
   }
