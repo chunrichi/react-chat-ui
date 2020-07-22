@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import face1 from "../../assets/images/face-male-1.jpg";
 import StyledAvatar, { StatusIcon, AvatarClip, AvatarImage } from "./style";
 
 function Avatar({
