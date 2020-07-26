@@ -1,6 +1,7 @@
 import React from "react";
 import ChatBubble from ".";
 import VoiceMessage from "components/VoiceMessage";
+import Emoji from "components/Emoji";
 
 export default {
   title: "UI 组件/ChatBubble",
@@ -12,10 +13,11 @@ export const Default = () => {
   return <ChatBubble time="昨天 下午15:36">默认</ChatBubble>;
 };
 
+/* eslint-disable jsx-a11y/accessible-emoji */
 export const Mine = () => {
   return (
     <ChatBubble type="mine" time="昨天 下午15:36">
-      默认
+      默认<Emoji label="smile">😀</Emoji>
     </ChatBubble>
   );
 };
