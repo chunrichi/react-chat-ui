@@ -26,3 +26,6 @@ export const WithAffix = () => {
     />
   );
 };
+
+export const InputTextWithLabel = () => <Input.Text label="昵称" />;
+export const InputTextWithoutLabel = () => <Input.Text />;
