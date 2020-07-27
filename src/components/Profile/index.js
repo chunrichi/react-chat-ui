@@ -18,6 +18,7 @@ import Emoji from "components/Emoji";
 import Icon from "components/Icon";
 import Seprator from "components/Seprator";
 import Text from "components/Text";
+import Button from "components/Button";
 
 import face from "assets/images/face-male-4.jpg";
 import photo1 from "assets/images/photo1.jpg";
@@ -29,22 +30,53 @@ import {
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 import { ReactComponent as Cross } from "assets/icons/cross.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Profile({ children, ...rest }) {
+function Profile({
+  showEditBtn,
+  showCloseIcon,
+  onEdit,
+  status,
+  children,
+  ...rest
+}) {
   return (
     <StyledProfile {...rest}>
-      <CloseIcon icon={Cross} />
+      {showCloseIcon && <CloseIcon icon={Cross} />}
       <Avatar
         css={`
           margin: 26px 0;
+          grid-area: 1 / 1 / 3 / 2;
+          /* 开始行号 还是列号 结束行号 结束列号 */
         `}
         src={face}
         size="160px"
-        status="online"
+        status={status}
         statusIconSize="25px"
       />
+      {showEditBtn && (
+        <Button
+          size="52px"
+          onClick={onEdit}
+          css={`
+            grid-area: 1 / 1 / 3 / 2;
+            /* 开始行号 还是列号 结束行号 结束列号 */
+            align-self: end;
+            margin-left: 100px;
+            z-index: 10;
+          `}
+        >
+          <FontAwesomeIcon
+            css={`
+              font-size: 24px;
+            `}
+            icon={faPen}
+          />
+        </Button>
+      )}
       <Paragraph
         size="xlarge"
         css={`

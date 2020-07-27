@@ -7,5 +7,5 @@ export default {
 };
 
 export const Default = () => {
-  return <Profile />;
+  return <Profile status="online" />;
 };
