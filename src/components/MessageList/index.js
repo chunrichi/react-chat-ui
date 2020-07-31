@@ -1,12 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import StyledMessageList, { ChatList } from "./style";
-import Filter from "components/Filter";
-import Select from "components/Select";
-import Option from "components/Option";
-import Button from "components/Button";
-import Icon from "components/Icon";
-import { ReactComponent as Plus } from "assets/icons/plus.svg";
 import MessageCard from "components/MessageCard";
 
 import face1 from "assets/images/face-male-1.jpg";

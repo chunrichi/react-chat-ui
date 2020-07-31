@@ -37,7 +37,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Profile({
   showEditBtn,
-  showCloseIcon,
+  showCloseIcon = true,
   onEdit,
   status,
   children,

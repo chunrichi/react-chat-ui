@@ -25,9 +25,11 @@ const Message = styled.div`
   grid-template-columns: 1fr 30px;
   align-items: center;
 
-  ${({replied})=>replied && css`
-  grid-template-columns: 24px 1fr 30px;
-  `}
+  ${({ replied }) =>
+    replied &&
+    css`
+      grid-template-columns: 24px 1fr 30px;
+    `}
 `;
 
 const MessageText = styled(Paragraph).attrs({ ellipsis: true })``;
@@ -46,7 +48,7 @@ const StyledMessageCard = styled.div`
     "message message message";
   grid-template-columns: 64px 1fr 1fr;
   /* 行间距 */
-  grid-gap: 6px;
+  row-gap: 16px;
   background-color: ${({ theme }) => theme.background};
   /* 过度效果 */
   transition: 0.4s;
