@@ -15,34 +15,45 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import "styled-components/macro";
+import { Link, useLocation, matchPath } from "react-router-dom";
 
 function NavBar({ ...rest }) {
   return (
     <StyledNavBar {...rest}>
       <Avatar src={profileImage} status="online" />
       <MenuItems>
-        <MenuItem showBadge active icon={faCommentDots} />
-        <MenuItem icon={faUsers} />
-        <MenuItem icon={faFolder} />
-        <MenuItem icon={faStickyNote} />
+        <MenuItem to="/" showBadge icon={faCommentDots} />
+        <MenuItem to="/contacts" icon={faUsers} />
+        <MenuItem to="/files" icon={faFolder} />
+        <MenuItem to="/notes" icon={faStickyNote} />
         <MenuItem icon={faEllipsisH} />
         <MenuItem
+          to="/settings"
           icon={faCog}
-          css={` align-self: end `}
+          css={`
+            align-self: end;
+          `}
         />
       </MenuItems>
     </StyledNavBar>
   );
 }
 
-function MenuItem({ icon, active, showBadge, ...rest }) {
+function MenuItem({ to, icon, showBadge, ...rest }) {
+  // 获取路径信息
+  const loc = useLocation();
+  // 判断路径 !! 转换为bool
+  const active = !!matchPath(loc.pathname, {
+    path: to,
+    exact: to === "/",
+  });
   return (
     <StyledMenuItem active={active} {...rest}>
-      <a href="#">
+      <Link to={to}>
         <Badge show={showBadge}>
           <MenuIcon active={active} icon={icon} />
         </Badge>
-      </a>
+      </Link>
     </StyledMenuItem>
   );
 }
