@@ -10,6 +10,8 @@ import ContactList from "components/ContactList";
 import FileList from "components/FileList";
 import NoteList from "components/NoteList";
 import EditProfile from "components/EditProfile";
+import Settings from "components/Settings";
+import BlockedList from "components/BlockedList";
 
 function ChatApp({ children, ...rest }) {
   return (
@@ -37,7 +39,17 @@ function ChatApp({ children, ...rest }) {
         </Switch>
       </Sidebar>
       <Content>
-        <Conversation />
+        <Switch>
+          <Route exact path="/settings">
+            <Settings />
+          </Route>
+          <Route exact path="/settings/blocked">
+            <BlockedList />
+          </Route>
+          <Route path="/">
+            <Conversation />
+          </Route>
+        </Switch>
       </Content>
       <Drawer>
         <Profile />
