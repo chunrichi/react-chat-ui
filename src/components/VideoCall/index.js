@@ -23,7 +23,7 @@ import "styled-components/macro";
 import videoCaller from "assets/images/video-caller.jpg";
 import face from "assets/images/face-male-1.jpg";
 
-function VideoCall({ name = "李明", children, ...rest }) {
+function VideoCall({ name = "李明", onHangOffClicked, children, ...rest }) {
   const [fullScreen, setFullScreen] = useState(true);
 
   if (!fullScreen) {
@@ -76,7 +76,7 @@ function VideoCall({ name = "李明", children, ...rest }) {
           <FontAwesomeIcon icon={faMicrophone} />
         </Action>
         <Action type="hangoff">
-          <FontAwesomeIcon icon={faPhoneSlash} />
+          <FontAwesomeIcon icon={faPhoneSlash} onClick={onHangOffClicked} />
         </Action>
         <Action>
           <FontAwesomeIcon icon={faVolumeMute} />

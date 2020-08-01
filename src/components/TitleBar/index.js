@@ -15,6 +15,7 @@ import Dropdown from "components/Dropdown";
 import Seprator from "components/Seprator";
 function TitleBar({
   onAvatarClick,
+  onVideoClicked,
   avatarStatus = "online",
   avatarSrc,
   name,
@@ -34,7 +35,7 @@ function TitleBar({
         </Paragraph>
       </Title>
       <Actions>
-        <Icon opacity={0.3} icon={Call} />
+        <Icon opacity={0.3} icon={Call} onClick={onVideoClicked} />
         <Icon opacity={0.3} icon={Camera} />
         <Dropdown
           content={
