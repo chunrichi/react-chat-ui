@@ -10,7 +10,7 @@ import face1 from "assets/images/face-male-1.jpg";
 import Footer from "components/Footer";
 
 /* eslint-disable jsx-a11y/accessible-emoji */
-function Conversation({ children, ...rest }) {
+function Conversation({ onAvatarClick, children, ...rest }) {
   return (
     <StyledConversation {...rest}>
       <TitleBar
@@ -19,6 +19,7 @@ function Conversation({ children, ...rest }) {
         name="张三"
         status="在线"
         time="三小时前"
+        onAvatarClick={onAvatarClick}
       />
       <Conversations>
         <MyChatBabble time="昨天 下午15:36">

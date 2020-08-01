@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import StyledChatApp, { Nav, Sidebar, Content, Drawer } from "./style";
 import NavBar from "components/NavBar";
@@ -14,6 +14,7 @@ import Settings from "components/Settings";
 import BlockedList from "components/BlockedList";
 
 function ChatApp({ children, ...rest }) {
+  const [showDrawer, setShowDrawer] = useState(false);
   return (
     <StyledChatApp {...rest}>
       <Nav>
@@ -47,12 +48,12 @@ function ChatApp({ children, ...rest }) {
             <BlockedList />
           </Route>
           <Route path="/">
-            <Conversation />
+            <Conversation onAvatarClick={() => setShowDrawer(true)} />
           </Route>
         </Switch>
       </Content>
-      <Drawer>
-        <Profile />
+      <Drawer show={showDrawer}>
+        <Profile onCloseClick={() => setShowDrawer(false)} />
       </Drawer>
     </StyledChatApp>
   );

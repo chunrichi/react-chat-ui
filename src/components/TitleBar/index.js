@@ -14,6 +14,7 @@ import { DropdownItem } from "components/Dropdown/style";
 import Dropdown from "components/Dropdown";
 import Seprator from "components/Seprator";
 function TitleBar({
+  onAvatarClick,
   avatarStatus = "online",
   avatarSrc,
   name,
@@ -24,7 +25,7 @@ function TitleBar({
 }) {
   return (
     <StyledTitleBar {...rest}>
-      <Avatar status={avatarStatus} src={avatarSrc} />
+      <Avatar onClick={onAvatarClick} status={avatarStatus} src={avatarSrc} />
       <Title>
         <Paragraph size="large">{name}</Paragraph>
         <Paragraph type="secondary">
