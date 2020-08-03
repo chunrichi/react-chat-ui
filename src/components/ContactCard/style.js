@@ -7,7 +7,7 @@ const Name = styled(Paragraph).attrs({ size: "large" })`
   grid-area: name;
 `;
 
-const Intro = styled(Paragraph).attrs({ type: "sencodary" })`
+const Intro = styled(Paragraph).attrs({ type: "secondary" })`
   grid-area: intro;
 `;
 

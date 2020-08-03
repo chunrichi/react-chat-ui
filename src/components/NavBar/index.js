@@ -26,7 +26,7 @@ function NavBar({ ...rest }) {
         <MenuItem to="/contacts" icon={faUsers} />
         <MenuItem to="/files" icon={faFolder} />
         <MenuItem to="/notes" icon={faStickyNote} />
-        <MenuItem icon={faEllipsisH} />
+        <MenuItem to='/' icon={faEllipsisH} />
         <MenuItem
           to="/settings"
           icon={faCog}
