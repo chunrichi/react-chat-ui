@@ -5,23 +5,12 @@ import MessageCard from "components/MessageCard";
 
 import face1 from "assets/images/face-male-1.jpg";
 import FilterList from "components/FilterList";
-import { useTrail, animated } from "react-spring";
+import { animated } from "react-spring";
+import useStageredList from "hooks/useStageredList";
 
 function MessageList({ children, ...rest }) {
-  // 6 个项目 + 配置项
-  // translate3d 可以开启gpu加速，比2d好=>动画结束值
-  // from 动画初始值
-  // delay 延迟200毫秒
-  const trailAnimes = useTrail(6, {
-    transform: "translate3d(0px ,0px, 0px)",
-    from: { transform: "translate3d(-50px, 0px, 0px)" },
-    config: {
-      mass: 0.8,
-      tension: 280,
-      friction: 20,
-    },
-    delay: 200,
-  });
+  let number = 6;
+  const trailAnimes = useStageredList(number);
 
   return (
     <StyledMessageList {...rest}>
@@ -30,7 +19,7 @@ function MessageList({ children, ...rest }) {
         actionLabel="创建会话"
       >
         <ChatList>
-          {[1, 2, 3, 4, 5, 6].map((_, index) => (
+          {new Array(number).fill(0).map((_, index) => (
             <animated.div key={index} style={trailAnimes[index]}>
               <MessageCard
                 key={index}

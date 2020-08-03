@@ -3,8 +3,13 @@ import PropTypes from "prop-types";
 import StyledNoteList, { Notes } from "./style";
 import FilterList from "components/FilterList";
 import NoteCard from "components/NoteCard";
+import { animated } from "react-spring";
+import useStageredList from "hooks/useStageredList";
 
 function NoteList({ children, ...rest }) {
+  let number = 12;
+  const trailAnimes = useStageredList(number);
+
   return (
     <StyledNoteList {...rest}>
       <FilterList
@@ -12,8 +17,10 @@ function NoteList({ children, ...rest }) {
         actionLabel="添加笔记"
       >
         <Notes>
-          {new Array(12).fill(0).map((_, i) => (
-            <NoteCard key={i} />
+          {new Array(number).fill(0).map((_, i) => (
+            <animated.div key={i} style={trailAnimes[i]}>
+              <NoteCard key={i} />
+            </animated.div>
           ))}
         </Notes>
       </FilterList>
