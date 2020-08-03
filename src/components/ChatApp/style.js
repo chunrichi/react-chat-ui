@@ -2,6 +2,9 @@ import styled, { css } from "styled-components";
 
 const Nav = styled.div`
   flex-shrink: 0;
+
+  position: relative;
+  z-index: 100;
 `;
 
 const Sidebar = styled.aside`
@@ -10,6 +13,15 @@ const Sidebar = styled.aside`
   height: 100vh;
   flex: 1;
   background: ${({ theme }) => theme.gradiantGray};
+
+  position: relative;
+  z-index: 50;
+  > div {
+    /* 需要开启gpu加速 提高性能 */
+    will-change: transform, opacity;
+    position: absolute;
+    width: 100%;
+  }
 `;
 
 const Content = styled.main`
